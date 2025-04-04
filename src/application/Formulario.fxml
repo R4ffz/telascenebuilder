@@ -4,15 +4,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Pos?>
-
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
+
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controller.FormularioController"
       spacing="10" alignment="TOP_CENTER"
       prefWidth="600" prefHeight="600">
 
-    <padding><Insets top="20" left="30" right="30" bottom="20"/></padding>
+    <padding>
+        <Insets top="20" left="30" right="30" bottom="20"/>
+    </padding>
 
     <Label text="Formulário de Contato" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
     <Label text="Deixe-nos saber suas perguntas, sugestões ou dúvidas, preenchendo o formulário de contato abaixo."
@@ -29,16 +32,16 @@
 
         <!-- Nome -->
         <Label text="Nome*" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-        <TextField promptText="Nome" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-        <TextField promptText="Último" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <TextField fx:id="nomeField" promptText="Nome" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <TextField fx:id="sobrenomeField" promptText="Último" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
 
         <!-- Email -->
         <Label text="E-mail*" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-        <TextField promptText="exemplo@email.com" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+        <TextField fx:id="emailField" promptText="exemplo@email.com" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
 
         <!-- Telefone -->
         <Label text="Telefone*" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-        <TextField promptText="### ### ####" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+        <TextField fx:id="telefoneField" promptText="(99) 99999-9999" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
 
         <!-- Assunto -->
         <Label text="Assunto*" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
@@ -55,9 +58,11 @@
 
         <!-- Mensagem -->
         <Label text="Mensagem*" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-        <TextArea prefRowCount="5" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
+        <TextArea fx:id="mensagemArea" prefRowCount="5" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="2"/>
     </GridPane>
 
-    <Button text="Enviar Formulário de Contato" style="-fx-background-color: #444; -fx-text-fill: white; -fx-padding: 10px 20px;"/>
+    <Button text="Enviar Formulário de Contato"
+            style="-fx-background-color: #444; -fx-text-fill: white; -fx-padding: 10px 20px;"
+            onAction="#enviarFormulario"/>
 
 </VBox>
